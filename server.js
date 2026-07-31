@@ -4,7 +4,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//  CONFIG API (Dashboard isi se Firebase config uthayega)
+// 🔥 BACKEND CONFIG ROUTE (Dashboard isi se Firebase config uthayega)
 app.get('/api/config', (req, res) => {
   res.json({
     success: true,
@@ -25,7 +25,7 @@ app.get('/api/config', (req, res) => {
   });
 });
 
-//  DUMMY AUTH (Taaki Dashboard bina crash kiye login kare)
+// 🔥 DUMMY AUTH (Taaki Login button click karne par app crash na ho)
 app.post('/api/auth/google', (req, res) => {
   res.json({
     success: true,
@@ -36,14 +36,15 @@ app.post('/api/auth/google', (req, res) => {
   });
 });
 
+// 🔥 VERIFIED USER ROUTE
 app.get('/api/auth/me', (req, res) => {
   res.json({ success: true, data: { displayName: "Test User", email: "test@example.com" } });
 });
 
-// Sample Wallet Route
+// 🔥 WALLET BALANCE ROUTE
 app.get('/api/wallet/balance', (req, res) => {
   res.json({ success: true, data: { balance: 500.00, bonusBalance: 10.00 } });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// 🔥 ZAROORI: Vercel ke liye export line
+module.exports = app;
